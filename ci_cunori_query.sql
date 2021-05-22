@@ -42,7 +42,7 @@ create table articulo(
     activo tinyint not null default 1, 
     disponible tinyint not null default 1,
     foreign key (categoria_codigo_control) references categoria(codigo_control),
-    foreign key (tipo_idtipo) references tipo(idtipo)
+    foreign key (tipo_idtipo) references tipo(idtipo) on delete cascade
 );
 
 create table empleado(
@@ -79,3 +79,4 @@ create table mantenimiento_vehiculo(
 insert into rol (rol) values ('Administrador');
 insert into rol (rol) values ('Lector');
 
+delete from tipo where idtipo = 1
